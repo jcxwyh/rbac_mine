@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      -                                                        -
+      -                  配置Configuration类中的属性               -
+      -                                                        -
+      - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <settings>
+        <setting name="safeRowBoundsEnabled" value="true"/>
+        <setting name="useGeneratedKeys" value="true" />
+    </settings>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      -                                                        -
+      -                  配置类的别名，方便后续使用　　　               -
+      -                                                        -
+      - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <typeAliases>
+
+    </typeAliases>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      -                                                        -
+      -                  配置插件，如分页插件　　　　　　               -
+      -                                                        -
+      - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--<plugins>-->
+        <!--<plugin interceptor=""></plugin>-->
+    <!--</plugins>-->
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      -                                                        -
+      -                  配置javaType和jdbcType的转换规则          -
+      -                                                        -
+      - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--<typeHandlers>-->
+
+    <!--</typeHandlers>-->
+</configuration>

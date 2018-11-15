@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--scan=true配置文件自动（定时）重新加载 scanPeriod默认单位毫秒 debug=true时将打印logback内部日志信息-->
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <!-- appender:日志的输出位置 -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--+ + + + + + + + + + + + + + + + + + + + + + + +
+            +       pattern格式:                               +
+            +           %d{}:日期格式化表达式                      +
+            +           %thread:线程                           +
+            +           %-5level:表示在输出级别之前先输出5个空格      +
+            +           %logger:logger名称                     +
+            +           %msg:logger的信息                       +
+            +           %n:换行                                +
+            + + + + + + + + + + + + + + + + + + + + + + + + +-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss:SSS} [%thread] %-5logger %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="rolling.debug" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/rolling-debug.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>logs/rolling-debug-%d{yyyy-MM-dd HH:mm}.log.gz</FileNamePattern>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss:SSS} [%thread] %-5logger %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      -    日志级别：   　                                         -
+      -    TRACE < DEBUG < INFO < WARN < ERROR                 -
+      -                                                        -
+      - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+    <!-- logger:日志的处理器 -->
+    <logger name="debug" level="DEBUG">
+        <appender-ref ref="rolling-debug" />
+    </logger>
+
+    <!-- 只能有一个root logger -->
+    <root level="INFO">
+        <appender-ref ref="console"/>
+    </root>
+</configuration>
